@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Books
+  p 
+    a(class='button', href='new_book.html') Create New Book
+  table
+    thead
+      tr
+        th Title
+        th Author
+        th Genre
+        th Year
+    tbody
+      tr
+        td
+          a(href='book_detial.html') A Brief History of Time
+        td Stepen Hawking
+        td Non Fiction
+        td 1988
+      tr
+        td
+          a(href='book_detial.html') Armada
+        td Ernest Cline
+        td Science Fiction
+        td 2015
+      

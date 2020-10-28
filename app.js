@@ -51,10 +51,23 @@ app.use('/users', usersRouter);
 
 module.exports = app;
 
-// 404 error handling middleware
+// Catching 404 error
 app.use((req, res, next) => {
   const err = new Error('Not found');
   err.status = 404;
-  err.message = "Oops looks like there was an error!";
-  res.render('page-not-found', {err: err, title: "Page not found"});
+  err.message = "Oops, looks like there was an error, page could not be found."
+  res.render('page-not-found', {err})
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  // res.locals.error = err;
+  if (err.status === 404) {
+    res.status(404)
+    res.render('page-not-found', {err});
+  } else {
+    err.message = "Looks like something went wrong on the server!";
+    res.status(500);
+    res.render('error', {err})
+  }
 });
