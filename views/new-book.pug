@@ -2,21 +2,27 @@ extends layout
 
 block content
     h1 New Book
-    form(action='', method='')
+    if(errors)
+        h2.errors Oops an error occurred!
+        ul.errors
+            each error in errors
+                li=error.message
+
+    form(action='/books/new', method='post')
         p
             label(for='title') Title
-            input(name='title', type='text', id='title')
+            input(name='title', type='text', id='title' value= newBook ? newBook.title : null)
         p
             label(for='author') Author
-            input(name='author', type='text', id='author')
+            input(name='author', type='text', id='author' value= newBook ? newBook.author : null)
         p
             label(for='genre') Genre
-            input(name='genre', type='text', id='genre')
+            input(name='genre', type='text', id='genre' value= newBook ? newBook.genre : null)
         p
             label(for='year') Year
-            input(name='year', type='text', id='year')
+            input(name='year', type='text', id='year' value= newBook ? newBook.year : null)
         p
             input(type='submit', value='Create New Book')
         p
-            a(class='button', href='all_books.html') Cancel
+            a(class='button', href='/') Cancel
         

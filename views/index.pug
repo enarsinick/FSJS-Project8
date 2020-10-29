@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Books
   p 
-    a(class='button', href='new_book.html') Create New Book
+    a(class='button', href='/books/new') Create New Book
   table
     thead
       tr
@@ -12,16 +12,11 @@ block content
         th Genre
         th Year
     tbody
-      tr
-        td
-          a(href='book_detial.html') A Brief History of Time
-        td Stepen Hawking
-        td Non Fiction
-        td 1988
-      tr
-        td
-          a(href='book_detial.html') Armada
-        td Ernest Cline
-        td Science Fiction
-        td 2015
+      each book in books
+        tr
+          td
+            a(href=`/books/${book.id}`)= book.title
+          td= book.author
+          td= book.genre
+          td= book.year
       

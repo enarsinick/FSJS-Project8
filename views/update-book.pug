@@ -2,24 +2,30 @@ extends layout
 
 block content
     h1 Update Book
-    form
+    if(errors)
+        h2.errors Oops an error occurred!
+        ul.errors
+            each error in errors
+                li=error.message
+
+    form(action=`/books/${book.id}`, method='post')
         p 
             label(for='title') Title
-            input(name='title', type='text', id='title', value='A Brief History of Time')
+            input(name='title', type='text', id='title', value= book ? book.title : null)
         p
             label(for='author') Author
-            input(name='author', type='text', id='author', value='Stepen Hawking')
+            input(name='author', type='text', id='author', value= book ? book.author : null)
         p
             label(for='genre') Genre
-            input(name='genre', type='text', id='genre', value='Non-fiction')
+            input(name='genre', type='text', id='genre', value= book ? book.genre : null)
         p
             label(for='year') Year
-            input(name='year', type='text', id='year', value='1988')
+            input(name='year', type='text', id='year', value= book ? book.year : null)
         p
             input(type='submit', value='Update Book')
 
-    form(action="", method='post', onsubmit="return confirm('Do you really want to delete this book?');")
+    form(action=`/books/${book.id}/delete`, method='post', onsubmit="return confirm('Do you really want to delete this book?');")
         p
-            a(class='button', href="all_books.html") Cancel
+            a(class='button', href="/books") Cancel
         p
             input(type='submit', value='Delete Book')
