@@ -1,27 +1,28 @@
 body {
   padding: 10px 50px 50px;
-  font: 18px "Garamond", serif;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 a {
-  color: #019875;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
 }
 
   a:hover {
-    color: black;
+    color: #ea4c89;
   }
 
 a.button, input[type=submit] {
   color: white;
-  background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding: 10px 14px 12px;
+  background: #ea4c89;
+  padding: 14px;
   font-size: 14px;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -35,12 +36,12 @@ input[type=submit] {
 }
 
   a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
+    background-color: #F082AC;
   }
 
-p {
+/* p {
   margin: 20px auto;
-}
+} */
 
 ul {
   padding: 0;
@@ -54,18 +55,22 @@ h2 {
   padding-top: 20px;
 }
 
+table {
+  width: 100%;
+}
+
 th {
-  border-bottom: 2px solid #D8B493;
+  border-bottom: 1px solid #9E9EA7;
   text-align: left;
   padding: 5px 20px 5px 10px;
 }
 
 tr {
-  min-height: 50px;
+  height: 40px;
 }
 
 tr:nth-child(2n) {
-  background: #E7E7E7;
+  background: #f3f3f4;
 }
 
 td {
@@ -81,11 +86,16 @@ label {
 
 input {
   padding: 10px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   border-radius: 2px;
-  border-color: #E7E7E7;
+  border: 2px solid #E7E7E7;
+  outline: none;
   transition: 0.4s;
+}
+
+input:focus {
+  border: 2px solid #F082AC;
 }
 
 input[type=text] {
@@ -95,4 +105,11 @@ input[type=text] {
 
 .error {
   color: rgb(236, 15, 15);
+}
+
+.headerDiv {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
